@@ -1,0 +1,175 @@
+INFORME PRÁCTICA 2, (23/10/2021).
+
+
+INTRODUCCIÓN:
+En esta práctica llevaremos a cabo el estudio de la complejidad computacional de dos algoritmos de ordenación: por selección y por shell.
+Los algoritmos ordenan de menor a mayor dos vectores inicializados de tres formas diferentes; de forma aleatoria, de forma descendente y de forma ascendente, es decir, ya ordenado.
+Para realizar este estudio haremos un análisis de rendimiento, donde calcularemos el tiempo que tarde en ejecutarse cada uno de los algoritmos para cada inicialización. Así obtendremos un total de 6 tablas que compararemos entre ellas para saber que algoritmo es más rápido en cada situación.
+
+
+MÁQUINA:ASUS ZenBook UX305. SO: Ubuntu 16.04 LTS. Procesador:Intel® Core™ i5-6200U CPU @ 2.30GHz × 4.
+
+
+UNIDADES DE TIEMPO: microsegundos.
+
+
+TABLAS:
+#Las filas marcados con un asterisco (*), correspoden a tiempos menores de 500 milisegundos.
+
+
+***********************************************************
+ COTAS ALGORITMO DE ORDENACION POR SELECCION
+
+ Ordenación con inicialización aleatoria
+***********************************************************
+     n         t(n)        t(n)/n^1.9       t(n)/n^2      t(n)/n^2.1
+
+*   500     390.239000       0.002906       0.001561       0.000838
+
+   1000    1456.000000       0.002905       0.001456       0.000730
+
+   2000    5774.000000       0.003087       0.001443       0.000675
+
+   4000   24376.000000       0.003492       0.001523       0.000665
+
+   8000   95142.000000       0.003652       0.001487       0.000605
+
+  16000  376751.000000       0.003875       0.001472       0.000559
+
+  32000 1464813.000000       0.004036       0.001430       0.000507
+  
+  **No se detectaron mediciones anómalas en la ejecución**
+  
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.0015.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+ Ordenación con inicialización ascendente
+*******************************************************
+     n          t(n)      t(n)/n^(1.9)      t(n)/n^2       t(n)/n^(2.1)
+
+*   500     350.990000       0.002614       0.001404       0.000754
+
+   1000    1426.000000       0.002845       0.001426       0.000715
+
+   2000    5693.000000       0.003044       0.001423       0.000666
+
+   4000   23504.000000       0.003367       0.001469       0.000641
+
+   8000   93621.000000       0.003593       0.001463       0.000596
+
+  16000  354632.000000       0.003647       0.001385       0.000526
+
+  32000 1402925.000000       0.003866       0.001370       0.000486
+
+  **No se detectaron mediciones anómalas en la ejecución**
+  
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.0014.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+ Ordenación con inicialización descendente
+*******************************************************
+     n          t(n)      t(n)/n^(1.9)      t(n)/(n)^2    t(n)/n^(2.1)
+
+*   500     367.417000       0.002736       0.001470       0.000789
+
+   1000    1478.000000       0.002949       0.001478       0.000741
+
+   2000    5914.000000       0.003162       0.001478       0.000691
+
+   4000   25188.000000       0.003608       0.001574       0.000687
+
+   8000   95604.000000       0.003669       0.001494       0.000608
+
+  16000  376217.000000       0.003869       0.001470       0.000558
+
+  32000 1470292.000000       0.004052       0.001436       0.000509
+
+  **No se detectaron mediciones anómalas en la ejecución**
+  
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00147.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+***********************************************************
+ COTAS ALGORITMO DE ORDENACION POR SHELL
+***********************************************************
+
+ Ordenación por shell con inicialización aleatoria
+***********************************************************
+     n          t(n)          t(n)/n      t(n)/n^(1.2)    t(n)/n^(1.5)
+
+*   500      75.452000       0.150904       0.043542       0.006749
+
+*  1000     154.521000       0.154521       0.038814       0.004886
+
+*  2000     353.061000       0.176530       0.038602       0.003947
+
+   4000     802.000000       0.200500       0.038168       0.003170
+
+   8000    1877.000000       0.234625       0.038883       0.002623
+
+  16000    4171.000000       0.260688       0.037609       0.002061
+
+  32000   10152.000000       0.317250       0.039845       0.001773
+
+  **Presenta una medición anómala en la primera línea**
+  
+Cota subestimada = O(n); t(n)/n tiende a infinito.
+Cota axustada = O(n^1.2); t(n)/(n^1.2) tiende a la constante 0.038.
+Cota sobrestimada = O(n^(1.5)); t(n)/(n^1.5) tiende a cero.
+
+Ordenación por shell con inicialización ascendente
+*******************************************************
+     n          t(n)     t(n)/n^(0.95)    t(n)/n^(1.14)    t(n)/n^(1.3)
+
+*   500      19.917000       0.054350       0.016688       0.006174
+
+*  1000      43.768000       0.061824       0.016640       0.005510
+
+*  2000      96.229000       0.070360       0.016601       0.004920
+
+*  4000     211.209000       0.079938       0.016533       0.004386
+
+   8000     504.000000       0.098740       0.017902       0.004250
+
+  16000    1074.000000       0.108916       0.017310       0.003678
+
+  32000    2174.000000       0.114121       0.015900       0.003024
+
+  **No se detectaron mediciones anómalas en la ejecución**
+  
+Cota subestimada = O(n^(0.95)); t(n)/n^(0.95) tiende a infinito.
+Cota axustada = O(n^1.14); t(n)/(n^1.14) tiende a la constante 0.00165.
+Cota sobrestimada = O(n^(1.3)); t(n)/(n^1.3) tiende a cero.
+
+Ordenación por shell con inicialización descendente
+*******************************************************
+     n          t(n)     t(n)/n^(0.95)  t(n)/n^(1.13)     t(n)/n^(1.3)
+
+*   500      28.578000       0.077985       0.025480       0.008859
+
+*  1000      61.919000       0.087463       0.025225       0.007795
+
+*  2000     136.431000       0.099755       0.025395       0.006975
+
+*  4000     300.857000       0.113868       0.025588       0.006247
+
+   8000     684.000000       0.134005       0.026581       0.005768
+
+  16000    1427.000000       0.144714       0.025338       0.004887
+
+  32000    3146.000000       0.165145       0.025523       0.004376
+
+  **No se detectaron mediciones anómalas en la ejecución**
+  
+Cota subestimada = O(n^(0.95)); t(n)/n^(0.95) tiende a infinito.
+Cota axustada = O(n^1-13); t(n)/(n^1.13) tiende a la constante 0.025.
+Cota sobrestimada = O(n^(1.3)); t(n)/(n^1.3) tiende a cero.
+
+
+CONCLUSIONES:
+
+	Desde un primer momento, podemos observar que el algoritmo de ordenación por Shell es más rápido que el de ordenación por Selección, ya que en los tres casos la cota ajustada de Selección es cuadrática, mientras que en el de Shell la cota ajustada en todos los casos es casi "n". Si nos fijamos también en los tiempos de ejecución que obtenemos, en el algoritmo de ordenación por selección tan solo obtenemos tiempos menores a 500 milisegundos en la primera iteración del algoritmo. Esto ocurre diferente en el de ordenación por Shell, puesto que en este caso en la  ordenación descendente y ascendente, tenemos que esperar hasta la quinta iteración para obtener tiempo mayores a 500 milisegundos.
+	Visto esto concluímos que el algoritmo de ordenación por Shell es mejor que el de ordenación por Selección.

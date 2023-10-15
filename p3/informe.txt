@@ -1,0 +1,340 @@
+INFORME PRACTICA 3, (20/11/2021)
+
+INTRODUCCION
+En esta practica llevamos a cabo el estudio de la complejidad
+computacional de dos algoritmos de ordenacion.
+Por un lado estudiaremos el algoritmo de ordenación por inserción y obtendremos
+la complijidad del mismo para tres inicializaciones del vector distintas (ascendente, descendente
+y aleatoria), y por otro analizaremos el algoritmo de ordenación rápida
+para tres inicializaciones diferentes y para tres umbrales diferentes (1,10y 100),
+es decir, obtendremos 9 tablas, la cuales compararemos entre si.
+
+
+MAQUINA:
+
+ASUS ZenBook UX305. SO: Ubuntu 16.04 LTS. Procesador:Intel® Core™ i5-6200U CPU @ 2.30GHz × 4.
+
+UNIDADES DE TIEMPO :
+Milisegundos.
+
+
+
+TABLAS:
+
+#Las filas marcadas con un asterisco corresponden a tiempos
+menores a los 500 milisegundos que se destacan puesto que al darse esta 
+situación las mediciones se realizan mediante un bucle con 1000 repeticiones.
+***********************************************************
+ COTAS ALGORITMO DE ORDENACION POR insercion
+
+ Ordenación con inicialización aleatoria
+***********************************************************
+     n         t(n)        t(n)/n^1.9       t(n)/n^2      t(n)/n^2.1
+
+*   500     212.897000       0.001585       0.000852       0.000457
+
+   1000     843.000000       0.001682       0.000843       0.000423
+
+   2000    3268.000000       0.001747       0.000817       0.000382
+
+   4000   13662.000000       0.001957       0.000854       0.000373
+
+   8000   52146.000000       0.002001       0.000815       0.000332
+
+  16000  207663.000000       0.002136       0.000811       0.000308
+
+  32000  814300.000000       0.002244       0.000795       0.000282
+
+**No se detectaron mediciones anomalas en la ejecucion**
+
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00082.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+ Ordenación con inicialización ascendente
+*******************************************************
+     n          t(n)       t(n)/n^(0.9)      t(n)/n       t(n)/n^1.1
+
+*   500       1.037000       0.003861       0.002074       0.001114
+
+*  1000       2.185000       0.004360       0.002185       0.001095
+
+*  2000       4.812000       0.005145       0.002406       0.001125
+
+*  4000       8.530000       0.004888       0.002132       0.000930
+
+*  8000      15.492000       0.004757       0.001937       0.000788
+
+* 16000      34.119000       0.005614       0.002132       0.000810
+
+* 32000      66.054000       0.005825       0.002064       0.000732
+
+**No se detectaron mediciones anomalas en la ejecucion**
+
+Cota subestimada = O(n^(0.9)); t(n)/n^(0.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n) tiende a la constante 0.0021.
+Cota sobrestimada = O(n^(1.1)); t(n)/(n^1.1) tiende a cero.
+
+Ordenación con inicialización descendente
+*******************************************************
+     n          t(n)     t(n)/n^(1.9)   t(n)/n^(2)    t(n)/n^(2.1)
+
+*   500     406.042000       0.003024       0.001624       0.000872
+
+   1000    1630.000000       0.003252       0.001630       0.000817
+
+   2000    6491.000000       0.003470       0.001623       0.000759
+
+   4000   26845.000000       0.003845       0.001678       0.000732
+
+   8000  103656.000000       0.003979       0.001620       0.000659
+
+  16000  412870.000000       0.004246       0.001613       0.000613
+
+  32000 1641717.000000       0.004524       0.001603       0.000568
+
+**No se detectaron mediciones anomalas en la ejecucion**
+
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00162.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+----------------UMBRAL = 1-------------------------
+
+Ordenación por quicksort con inicialización aleatoria
+***********************************************************
+     n          t(n)    t(n)/n^(1.8)        t(n)/n^(2)    t(n)/n^(2.1)
+
+*   500       9.826000      0.0001362      0.0000393      0.0000211
+
+   1000     881.000000      0.0035073      0.0008810      0.0004415
+
+   2000    3232.000000      0.0036950      0.0008080      0.0003778
+
+   4000   12965.000000      0.0042566      0.0008103      0.0003535
+
+   8000   51788.000000      0.0048828      0.0008092      0.0003294
+
+  16000  205636.000000      0.0055678      0.0008033      0.0003051
+
+  32000  825996.000000      0.0064226      0.0008066      0.0002859
+
+	**En la primera caso se detecta una medicion anomala.**
+Cota subestimada = O(n^(1.8)); t(n)/n^(1.8) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00080.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+Ordenación por quicksort con inicialización ascendente
+*******************************************************
+     n          t(n)      t(n)/n^(0.7)   t(n)/n^(0.97)    t(n)/n^(1.1)
+
+*   500              1       0.015046       0.002641       0.001253
+
+*  1000              3       0.026960       0.003897       0.001701
+
+*  2000              7       0.032169       0.003830       0.001538
+
+*  4000             11       0.033317       0.003267       0.001207
+
+*  8000             19       0.035067       0.002832       0.000963
+
+* 16000             28       0.031878       0.002120       0.000664
+
+* 32000             62       0.043450       0.002380       0.000685
+
+**No se detectaron mediciones anomalas en la ejecucion**
+
+Cota subestimada = O(n^(0.7)); t(n)/n^(0.7) tiende a infinito.
+Cota axustada = O(n^0.97); t(n)/(n^0.97) tiende a la constante 0.0025.
+Cota sobrestimada = O(n^(1.1)); t(n)/(n^1.1) tiende a cero.
+
+Ordenación por quicksort con inicialización descendente
+*******************************************************
+     n          t(n)      t(n)/n^(1.9)     t(n)/n^(2)     t(n)/n^(2.1)
+
+    500     559.000000     0.00416264     0.00223600     0.00120109
+
+   1000    1665.000000     0.00332211     0.00166500     0.00083448
+
+   2000    6400.000000     0.00342155     0.00160000     0.00074820
+
+   4000   27163.000000     0.00389102     0.00169769     0.00074072
+
+   8000  104378.000000     0.00400625     0.00163091     0.00066393
+
+  16000  412650.000000     0.00424379     0.00161191     0.00061225
+
+  32000 1663988.000000     0.00458527     0.00162499     0.00057588
+
+**En el primer caso se detecta una medición anomala**
+
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.0016.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+----------------UMBRAL=10-------------------------
+
+Ordenación por quicksort con inicialización aleatoria
+***********************************************************
+     n          t(n)    t(n)/n^(1.8)        t(n)/n^(2)    t(n)/n^(2.1)
+
+*   500     152.356000      0.0021121      0.0006094      0.0003274
+
+   1000     819.000000      0.0032605      0.0008190      0.0004105
+
+   2000    3248.000000      0.0037133      0.0008120      0.0003797
+
+   4000   13574.000000      0.0044566      0.0008484      0.0003702
+
+   8000   53212.000000      0.0050170      0.0008314      0.0003385
+
+  16000  208787.000000      0.0056531      0.0008156      0.0003098
+
+  32000  812721.000000      0.0063193      0.0007937      0.0002813
+	**Presenta una medición anómala en la primera línea**
+Cota subestimada = O(n^(1.8)); t(n)/n^(1.8) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00081.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+ Ordenación por quicksort con inicialización ascendente
+*******************************************************
+     n          t(n)      t(n)/n^(0.5)   t(n)/n^(1.05)    t(n)/nlogn
+*   500             10       0.435899       0.014287       0.003137
+
+*  1000              4       0.127535       0.002855       0.000584
+
+*  2000              6       0.126427       0.001933       0.000372
+
+*  4000             10       0.158825       0.001659       0.000303
+
+*  8000             21       0.237012       0.001691       0.000295
+
+* 16000             39       0.311998       0.001520       0.000255
+
+* 32000             37       0.208267       0.000693       0.000112
+
+* 64000            226       0.894375       0.002033       0.000319
+
+ 128000            610       1.705002       0.002647       0.000405
+
+ 256000           1139       2.251146       0.002387       0.000357
+
+ 512000           2197       3.070401       0.002224       0.000326
+
+ 1024000           4975       4.916354       0.002432       0.000351
+	**Presenta medicións anómalas**
+Cota subestimada = O(n^(0.5)); t(n)/n^(0.5) tiende a infinito.
+Cota axustada = O(n^1.05); t(n)/(n^1.05) tiende a la constante 0.0025.
+Cota sobrestimada = O(nlogn); t(n)/(nlog) tiende a cero.
+
+ Ordenación por quicksort con inicialización descendente
+*******************************************************
+     n          t(n)      t(n)/n^(1.9)     t(n)/n^(2)     t(n)/n^(2.1)
+
+*   500     267.920000     0.00199509     0.00107168     0.00057566
+
+   1000    1709.000000     0.00340990     0.00170900     0.00085653
+
+   2000    6367.000000     0.00340391     0.00159175     0.00074434
+
+   4000   26940.000000     0.00385908     0.00168375     0.00073463
+
+   8000  106021.000000     0.00406931     0.00165658     0.00067438
+
+  16000  411601.000000     0.00423300     0.00160782     0.00061070
+
+  32000 1637518.000000     0.00451233     0.00159914     0.00056672
+  	**Presenta una medición anómala en la primera línea**
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.0016.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+----------------UMBRAL=100-------------------------
+ Ordenación por quicksort con inicialización aleatoria
+***********************************************************
+     n          t(n)    t(n)/n^(1.8)        t(n)/n^(2)    t(n)/n^(2.1)
+
+*   500     154.438000      0.0021410      0.0006178      0.0003318
+
+   1000     865.000000      0.0034436      0.0008650      0.0004335
+
+   2000    3269.000000      0.0037373      0.0008173      0.0003822
+
+   4000   13108.000000      0.0043036      0.0008192      0.0003574
+
+   8000   52939.000000      0.0049913      0.0008272      0.0003367
+
+  16000  210060.000000      0.0056876      0.0008205      0.0003117
+
+  32000  821883.000000      0.0063906      0.0008026      0.0002844
+	**Presenta una medición anómala en la primera línea**
+Cota subestimada = O(n^(1.8)); t(n)/n^(1.8) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.00082.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+Ordenación por quicksort con inicialización ascendente
+*******************************************************
+     n          t(n)      t(n)/n^(0.7)   t(n)/n^(0.97)    t(n)/n^(1.1)
+
+*   500              1       0.018969       0.002155       0.000473
+
+*  1000              3       0.027595       0.002459       0.000503
+
+*  2000              6       0.027651       0.001934       0.000372
+
+*  4000              5       0.015914       0.000873       0.000159
+
+*  8000             20       0.037331       0.001607       0.000280
+
+* 16000             44       0.050144       0.001693       0.000284
+
+* 32000             82       0.057709       0.001529       0.000248
+
+* 64000            -70      -0.030075      -0.000625      -0.000098
+
+ 128000            725       0.192882       0.003146       0.000482
+
+ 256000           1091       0.178672       0.002287       0.000342
+
+ 512000           2253       0.227129       0.002280       0.000335
+
+ 1024000           4860       0.301597       0.002376       0.000343
+
+	**Presenta dos mediciones anómalas una en la línea  4 y otra en la línea 8**
+Cota subestimada = O(n^(0.7)); t(n)/n^(0.7) tiende a infinito.
+Cota axustada = O(n^0.97); t(n)/(n^1.05) tiende a la constante 0.0022.
+Cota sobrestimada = O(n^(1.1)); t(n)/(nlogn) tiende a cero.
+
+Ordenación por quicksort con inicialización descendente
+*******************************************************
+     n          t(n)      t(n)/n^(1.9)     t(n)/n^(2)     t(n)/n^(2.1)
+
+*   500     269.515000     0.00200697     0.00107806     0.00057909
+
+   1000    1686.000000     0.00336401     0.00168600     0.00084500
+
+   2000    6907.000000     0.00369260     0.00172675     0.00080747
+
+   4000   26665.000000     0.00381969     0.00166656     0.00072714
+
+   8000  107006.000000     0.00410712     0.00167197     0.00068064
+
+  16000  407496.000000     0.00419079     0.00159178     0.00060460
+
+  32000 1636035.000000     0.00450825     0.00159769     0.00056621
+   	**Presenta una medición anómala en la primera línea**
+Cota subestimada = O(n^(1.9)); t(n)/n^(1.9) tiende a infinito.
+Cota axustada = O(n^2); t(n)/(n^2) tiende a la constante 0.0016.
+Cota sobrestimada = O(n^(2.1)); t(n)/(n^2.1) tiende a cero.
+
+CONCLUSIONES:
+
+	La conclusión la dividiremos en dos partes, en la primera parte observaremos y comentaremos el 
+algoritmo de ordenación por inserción y en la segunda el de ordenación rápida.
+	En el algoritmo de ordenación por inserción podemos ver de forma clara que el mejor caso es el de el 
+vector ya  ordenado, tiene unha complejidad de 1 y los tiempos son siempre inferiores a 500 milisegundos.
+Minetras que en la ordenación descendente y aleatoria la complejidad es cuadrática y el algoritmo visiblemnte más lento.
+	El algoritmo de ordenación rápida lo estudiamos para tres umbrales, umbral 1,10 y 100. Para el umbral 1, a diferencia de los otros, el ordenación rápida no hace uso del algoritmo de ordenación por inserción. Para esta primera situación observamos que 
+el mejor caso es con el vector ascendente con una complejidad cercana a 1 mientras que los otros dos tienen complejidad cuadrática,aunque es un poco más rápido el de inicialización con vector aleatorio. Ocurre lo mismo en las mediciones de los umbrales 10 y 100, el mejor caso es, también el de inicialización ascendente, pero en esta ocasión tuvimos que aumentar "n"
+para obtener datos fiables. Compando ahora ya los tres entre si, en el mejor caso, es más rápido el que tiene umbral 1 mientras que 
+en los otros casos más o menos todos obtinen los mismos tiempos.

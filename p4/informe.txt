@@ -1,0 +1,54 @@
+INFORME PRACTICA 4, (07/12/2021)
+
+	José Manuel Amestoy López 	manuel.amestoy
+	María Riveiro Carballo  	m.riveiro.carballo
+
+INTRODUCCIÓN
+
+En esta practica llevamos a cabo el estudio de la complejidad computacional del algoritmo de Prim, este algoritmo calcula el camino minimo de un grafo. Para el estudio de este crearemos grafos aleatorios, y el algoritmo se encargara de recorrerlos y añadir el camino mas corto a una cola, posteriormente mediremos los tiempos.
+
+MAQUINA
+
+	Modelo: 	80UD Lenovo ideapad 110-15ISK
+	Kernel: 	5.11.0-36-generic
+	SO: 		Ubuntu 21.04 x86_64 
+	CPU: 		Intel i3-6006U (4) @ 2.000GHz 
+	Memoria RAM: 	6.00GB
+
+UNIDADES DE TIEMPO
+
+	Microsegundos
+	
+TABLAS
+
+Los elementos marcados con un asterisco ( * ) son los que tardan menos de 500
+microsegundos, por ello repetimos la medición 1000 veces en estos y calculamos
+la media de todas.
+
+*******************************************************************
+ COTAS ALGORITMO  DE PRIM
+*******************************************************************
+
+     n          t(n)   t(n)/n^(1.95)     t(n)/n^(2.10)  t(n)/n^(2.30)
+
+*    25      13.750000      0.0258416      0.0159452      0.0083761
+*    50      44.160000      0.0214802      0.0119452      0.0054626
+*   100     139.514000      0.0175638      0.0088027      0.0035044
+*   200     488.404000      0.0159137      0.0071881      0.0024912
+    400    2100.000000      0.0177093      0.0072093      0.0021751
+    800   13865.000000      0.0302618      0.0111028      0.0029162
+   1600   62296.000000      0.0351906      0.0116361      0.0026606
+   
+No tomamos más de 1600 elementos porque el algoritmo se ralentiza demasiado. 
+Usamos 3 cotas, la subeestimada t(n)/n^(1.95), que tiende hacia el infinito,
+la ajustada t(n)/n^(2.10) que tiende a 0.11,
+y la sobreestimada t(n)/n^(2.30) que tiende a 0.
+En las 3 cotas podemos distinguir mediciones anomalas en 100, 200 y 400,
+si probamos el algoritmo con grafos con más elementos nos damos cuenta de que
+se cumplen las previsiones.
+
+CONCLUSION
+
+	Tras comprobar la velocidad del algoritmo podemos observar que cada vez que se usa en grafos con mas elementos el algoritmo se ralentiza mas. Este algoritmo encuentra el camino minímo para recorrer por completo el grafo, por tanto tiene sentido que cada vez le cueste mas. Para ello creamos matrices aleatorias con las funciones proporcionadas y usando distintas cotas calculamos su complejidad computacional.
+
+
